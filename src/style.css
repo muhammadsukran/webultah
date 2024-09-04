@@ -124,7 +124,7 @@ body {
 }
 .carousel-container {
     position: absolute;
-    top: 450px; /* Atur sesuai kebutuhan agar berada tepat di bawah amplop */
+    top: 470px; /* Atur sesuai kebutuhan agar berada tepat di bawah amplop */
     margin-left: 200px;
     display: flex;
     justify-content: center;
