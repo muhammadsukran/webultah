@@ -3,6 +3,11 @@ document.querySelector('.envelope').addEventListener('click', function() {
     this.classList.toggle('open');
     document.querySelector('.click-message').style.display = 'none';
     
+    // Tampilkan carousel dan mulai animasi scroll
+    const carouselContainer = document.querySelector('.carousel-container');
+    carouselContainer.style.visibility = 'visible';
+    carouselScroll();
+
     // Mainkan lagu
     let audio = new Audio('happy-birthday.mp3');
     audio.play();
@@ -40,3 +45,25 @@ document.querySelector('.envelope').addEventListener('click', function() {
         }, songDuration - 5000);
     });
 });
+
+function carouselScroll() {
+    const carouselImages = document.querySelectorAll('.carousel img');
+    let index = 0;
+
+    setInterval(() => {
+        // Reset semua gambar
+        carouselImages.forEach(img => {
+            img.classList.remove('active');
+            img.style.width = '10%';
+        });
+
+        // Aktifkan gambar saat ini
+        carouselImages[index].classList.add('active');
+
+        // Pindah ke gambar berikutnya setelah 2 detik
+        index++;
+        if (index >= carouselImages.length) {
+            index = 0;
+        }
+    }, 2000); // Pindah gambar setiap 2 detik
+}
